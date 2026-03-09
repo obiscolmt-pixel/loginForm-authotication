@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home — Apex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0d0d14;
+      --ink-soft: #3a3a4a;
+      --ink-faint: #8888a0;
+      --accent: #c9473b;
+      --surface: #ffffff;
+      --surface-dim: #f4f3f0;
+      --border: #e2e0db;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface-dim);
+      color: var(--ink);
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: .6;
+      z-index: 10;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 24px;
+      animation: fadeIn .5s ease both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .success-icon {
+      width: 72px; height: 72px;
+      background: var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+      animation: pop .5s .2s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    @keyframes pop {
+      from { transform: scale(.5); opacity: 0; }
+      to   { transform: scale(1);  opacity: 1; }
+    }
+
+    .success-icon svg { color: white; }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--ink);
+      letter-spacing: -.02em;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 15px;
+      color: var(--ink-faint);
+      text-align: center;
+      max-width: 340px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .card-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px 28px;
+      text-align: center;
+      min-width: 120px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .stat-card .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--ink);
+      display: block;
+    }
+    .stat-card .lbl {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--ink-faint);
+      margin-top: 4px;
+      display: block;
+    }
+
+    .btn-logout {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: var(--ink);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-logout:hover { background: #1e1e30; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="success-icon">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </div>
+
+  <h1>You're in.</h1>
+  <p>Login successful. A notification has been sent to the administrator. Welcome to your dashboard.</p>
+
+  <div class="card-row">
+    <div class="stat-card">
+      <span class="num">12</span>
+      <span class="lbl">Projects</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">4</span>
+      <span class="lbl">Pending</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">98%</span>
+      <span class="lbl">Uptime</span>
+    </div>
+  </div>
+
+  <a href="/" class="btn-logout">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+    </svg>
+    Sign out
+  </a>
+</div>
+</body>
+</html>

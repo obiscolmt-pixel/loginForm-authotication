@@ -89,7 +89,7 @@ app.post("/login", async (req, res) => {
 });
 
 // ── Start server ──────────────────────────────────────────
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`\n🚀 Server running → http://localhost:${PORT}`);
   console.log(`   Login with: ${process.env.DEMO_EMAIL || "user@example.com"} / ${process.env.DEMO_PASSWORD || "password123"}\n`);
 });
